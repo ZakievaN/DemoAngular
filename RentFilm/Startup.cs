@@ -22,6 +22,7 @@ namespace RentFilm
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {

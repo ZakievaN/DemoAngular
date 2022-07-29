@@ -5,14 +5,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
-let AppComponent = class AppComponent {
+let TopBarComponent = class TopBarComponent {
+    constructor() { }
+    ngOnInit() {
+    }
 };
-AppComponent = __decorate([
+TopBarComponent = __decorate([
     Component({
-        selector: 'app',
-        templateUrl: './app.component.html',
-        styleUrls: ['./app.component.css']
+        selector: 'app-top-bar',
+        templateUrl: './top-bar.component.html',
+        styleUrls: ['./top-bar.component.css']
     })
-], AppComponent);
-export { AppComponent };
-//# sourceMappingURL=app.component.js.map
+], TopBarComponent);
+export { TopBarComponent };
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
+//# sourceMappingURL=top-bar.component.js.map

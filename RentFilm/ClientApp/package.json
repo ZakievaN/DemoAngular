@@ -1,21 +1,32 @@
 {
   "version": "1.0.0",
   "name": "asp.net",
+  "license": "MIT",
   "private": true,
   "author": "Nafisa Zakieva <norbit.ru>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "dependencies": {
     "@angular/common": "~10.0.0",
     "@angular/compiler": "~10.0.0",
     "@angular/core": "~10.0.0",
     "@angular/forms": "~10.0.0",
+    "@angular/http": "7.2.11",
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
+    "@angular/platform-server": "7.2.11",
     "@angular/router": "~10.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
+    "aspnet-prerendering": "^3.0.1",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
     "rxjs": "~6.5.5",
     "zone.js": "~0.10.3"
   },
@@ -23,7 +34,24 @@
     "@angular-devkit/build-angular": "~0.1000.0",
     "@angular/cli": "~10.0.0",
     "@angular/compiler-cli": "~10.0.0",
+    "@angular/language-service": "7.2.11",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
     "@types/node": "~14.0.14",
+    "codelyzer": "^4.0.1",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.1.2",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
     "typescript": "~3.9.5"
+  },
+  "optionalDependencies": {
+    "node-sass": "^4.9.0"
   }
 }
