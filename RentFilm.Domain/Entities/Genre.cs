@@ -1,13 +1,10 @@
-﻿using RentFilm.Domain.Entities.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace RentFilm.Domain.Entities
 {
-    public class Genre : IEntity
+    public class Genre
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
     }

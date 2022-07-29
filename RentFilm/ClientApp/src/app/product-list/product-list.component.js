@@ -5,11 +5,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
-import { products } from '../products';
 let ProductListComponent = class ProductListComponent {
-    constructor(cartService) {
+    constructor(cartService, dataService) {
         this.cartService = cartService;
-        this.products = products;
+        this.dataService = dataService;
+        this.products = this.dataService.getProducts();
     }
     addToCart(product) {
         this.cartService.addToCart(product);

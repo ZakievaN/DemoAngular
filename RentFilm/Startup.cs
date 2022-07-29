@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
-using RentFilm.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using RentFilm.Models;
 
 namespace RentFilm
 {
@@ -11,7 +12,11 @@ namespace RentFilm
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IFilmData, IFilmData>();
+            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=filmsdb;Trusted_Connection=True;";
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddControllers();
+            
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
@@ -30,6 +35,13 @@ namespace RentFilm
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.UseRouting();
+ 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             app.UseSpa(spa =>
             {
