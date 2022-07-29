@@ -6,3 +6,5 @@
 /RentFilm/bin/Debug/netcoreapp3.1
 /RentFilm/ClientApp/node_modules
 /RentFilm/obj
+/RentFilm.Domain/bin/Debug/netcoreapp3.1
+/RentFilm.Domain/obj

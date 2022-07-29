@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using RentFilm.Services.Interfaces;
 
 namespace RentFilm
 {
@@ -10,6 +11,7 @@ namespace RentFilm
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IFilmData, IFilmData>();
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
