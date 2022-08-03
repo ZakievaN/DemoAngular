@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { products } from '../products';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { DataService } from '../data.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-list',
@@ -8,17 +9,30 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
-  products = products;
+    products: Product[]; 
 
-  constructor(private cartService: CartService) {}
+    constructor(
+        private cartService: CartService,
+        private dataService: DataService
+    ) { }
 
-  addToCart(product) {
-    this.cartService.addToCart(product);
-  }
+    ngOnInit() {
+        this.loadProducts();    // загрузка данных при старте компонента  
+    }
 
-  onNotify() {
-    window.alert('You will be notified when the product goes on sale');
-  }
+    // получаем данные через сервис
+    loadProducts() {
+        this.dataService.getProducts()
+            .subscribe((data: Product[]) => this.products = data);
+    }
+
+    addToCart(product) {
+        this.cartService.addToCart(product);
+    }
+
+    onNotify() {
+        window.alert('You will be notified when the product goes on sale');
+    }
 }
 /*
 Copyright Google LLC. All Rights Reserved.

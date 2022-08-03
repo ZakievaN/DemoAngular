@@ -9,6 +9,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { ProductListComponent } from './product-list/product-list.component';
+//import { DataService } from './data.service';
+//import { CartComponent } from './cart/cart.component';
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -16,10 +19,13 @@ AppModule = __decorate([
         imports: [
             BrowserModule,
             FormsModule,
-            HttpClientModule
+            HttpClientModule,
         ],
         declarations: [
-            AppComponent
+            AppComponent,
+            ProductListComponent,
+            //DataService,        
+            //CartComponent
         ],
         bootstrap: [AppComponent],
     })

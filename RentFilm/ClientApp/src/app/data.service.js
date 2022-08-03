@@ -10,9 +10,6 @@ let DataService = class DataService {
         this.http = http;
         this.url = "/api/products";
     }
-    isAdmin() {
-        return false;
-    }
     getProducts() {
         return this.http.get(this.url);
     }

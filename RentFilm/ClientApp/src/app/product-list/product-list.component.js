@@ -6,13 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { Component } from '@angular/core';
 let ProductListComponent = class ProductListComponent {
-    constructor(cartService, dataService) {
-        this.cartService = cartService;
+    constructor(
+    //private cartService: CartService,
+    dataService) {
         this.dataService = dataService;
-        this.products = this.dataService.getProducts();
+    }
+    ngOnInit() {
+        this.loadProducts(); // �������� ������ ��� ������ ����������  
+    }
+    // �������� ������ ����� ������
+    loadProducts() {
+        this.dataService.getProducts()
+            .subscribe((data) => this.products = data);
     }
     addToCart(product) {
-        this.cartService.addToCart(product);
+        //this.cartService.addToCart(product);
     }
     onNotify() {
         window.alert('You will be notified when the product goes on sale');
