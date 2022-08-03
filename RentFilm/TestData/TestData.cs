@@ -21,23 +21,20 @@ namespace RentFilm.TestData
             }
         };
 
-        private static readonly List<Genre> genres = new List<Genre>()
+        private static readonly List<User> users = new List<User>()
         {
-            new Genre { Name = "Sci-Fi" },
-            new Genre { Name = "Adventure" },
-            new Genre { Name = "Action" }
-        };
-
-        private static readonly List<GenreFilm> genreFilms = new List<GenreFilm>()
-        {
-            new GenreFilm { FilmId = 1, GenreId = 1},
-            new GenreFilm { FilmId = 1, GenreId = 2},
-            new GenreFilm { FilmId = 2, GenreId = 2},
-            new GenreFilm { FilmId = 3, GenreId = 3}
+            new User {
+                Login = "Admin",
+                Password = "Admin"
+            },
+            new User {
+                Login = "User",
+                Password = "User"
+            },
         };
 
         public static List<Product> Products { get; } = products;
 
-        public static List<Genre> Genres { get; } = genres;
+        public static List<User> Users { get; } = users;
     }
 }

@@ -40,4 +40,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <TypeScriptCompile Update="ClientApp\src\app\product-list-admin\product-list-admin.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
 </Project>

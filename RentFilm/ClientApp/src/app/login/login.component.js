@@ -5,14 +5,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
-let AppComponent = class AppComponent {
+let LoginComponent = class LoginComponent {
+    constructor(loginService, formBuilder) {
+        this.loginService = loginService;
+        this.formBuilder = formBuilder;
+        this.loginForm = this.formBuilder.group({
+            login: '',
+            password: '',
+        });
+    }
+    onLogin(customerData) {
+        this.loginService.login(customerData);
+    }
+    ngOnInit() {
+    }
 };
-AppComponent = __decorate([
+LoginComponent = __decorate([
     Component({
-        selector: 'app-root',
-        templateUrl: './app.component.html',
-        styleUrls: ['./app.component.css']
+        selector: 'app-login',
+        templateUrl: './login.component.html',
+        styleUrls: ['./login.component.css'],
     })
-], AppComponent);
-export { AppComponent };
-//# sourceMappingURL=app.component.js.map
+], LoginComponent);
+export { LoginComponent };
+//# sourceMappingURL=login.component.js.map
