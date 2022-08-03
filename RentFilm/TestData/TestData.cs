@@ -25,12 +25,14 @@ namespace RentFilm.TestData
         {
             new User {
                 Login = "Admin",
-                Password = "Admin"
+                Password = "Admin",
+                Role = 1
             },
             new User {
                 Login = "User",
-                Password = "User"
-            },
+                Password = "User",
+                Role = 0
+            }
         };
 
         public static List<Product> Products { get; } = products;

@@ -5,7 +5,7 @@ import { User } from './user';
 @Injectable()
 export class LoginService {
 
-    private url = "/api/login";
+    private url = "/api/auth";
 
     constructor(private http: HttpClient) {
     }

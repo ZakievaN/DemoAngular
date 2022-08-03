@@ -8,3 +8,4 @@
 /RentFilm/obj
 /RentFilm.Domain/bin/Debug/netcoreapp3.1
 /RentFilm.Domain/obj
+/RentFilm/Migrations

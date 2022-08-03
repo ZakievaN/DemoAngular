@@ -1,4 +1,6 @@
-﻿namespace RentFilm.Domain.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace RentFilm.Domain.Entities
 {
     public class User
     {
@@ -7,5 +9,7 @@
         public string Login { get; set; }
 
         public string Password { get; set; }
+
+        public int Role { get; set; }
     }
 }
