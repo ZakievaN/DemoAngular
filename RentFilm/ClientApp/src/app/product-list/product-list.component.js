@@ -5,10 +5,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
+import { DataService } from '../data.service';
 let ProductListComponent = class ProductListComponent {
-    constructor(
-    //private cartService: CartService,
-    dataService) {
+    constructor(cartService, dataService) {
+        this.cartService = cartService;
         this.dataService = dataService;
     }
     ngOnInit() {
@@ -20,10 +20,7 @@ let ProductListComponent = class ProductListComponent {
             .subscribe((data) => this.products = data);
     }
     addToCart(product) {
-        //this.cartService.addToCart(product);
-    }
-    onNotify() {
-        window.alert('You will be notified when the product goes on sale');
+        this.cartService.addToCart(product);
     }
 };
 ProductListComponent = __decorate([
@@ -31,6 +28,7 @@ ProductListComponent = __decorate([
         selector: 'app-product-list',
         templateUrl: './product-list.component.html',
         styleUrls: ['./product-list.component.css'],
+        providers: [DataService]
     })
 ], ProductListComponent);
 export { ProductListComponent };

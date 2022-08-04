@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { DataService } from '../data.service';
 import { Product } from '../product';
@@ -6,7 +6,8 @@ import { Product } from '../product';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
+    styleUrls: ['./product-list.component.css'],
+    providers: [DataService]
 })
 export class ProductListComponent {
     products: Product[]; 
@@ -25,14 +26,14 @@ export class ProductListComponent {
         this.dataService.getProducts()
             .subscribe((data: Product[]) => this.products = data);
     }
-
+    
     addToCart(product) {
         this.cartService.addToCart(product);
     }
-
-    onNotify() {
-        window.alert('You will be notified when the product goes on sale');
-    }
+    
+    //onNotify() {
+    //    window.alert('You will be notified when the product goes on sale');
+    //}
 }
 /*
 Copyright Google LLC. All Rights Reserved.

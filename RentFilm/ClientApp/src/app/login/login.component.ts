@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { LoginService } from '../login.service';
+import { LoginUser } from '../loginUser';
 
 @Component({
     selector: 'app-login',
@@ -9,21 +9,20 @@ import { LoginService } from '../login.service';
     providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
-  loginForm;
+    name: string;
+    password: string;
 
   constructor(
     private loginService: LoginService,
-    private formBuilder: FormBuilder
   ) {
     
-    this.loginForm = this.formBuilder.group({
-      login: '',
-      password: '',
-    });
+    
   }
 
-  onLogin(customerData) {
-      this.loginService.login(customerData);
+   onSubmit() {
+      var user = new LoginUser(this.name, this.password);
+      this.loginService.login(user);
+      console.log(this.name + ' ' + this.password);
   }
 
     ngOnInit() {

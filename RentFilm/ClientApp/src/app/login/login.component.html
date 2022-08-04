@@ -1,15 +1,6 @@
-<h3>Login</h3>
-
-<form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
-    <div>
-        <label>Login</label>
-        <input type="text" max="100" required />
-    </div>
-
-    <div>
-        <label>Password</label>
-        <input type="password" max="100" required />
-    </div>
-
-    <input type="button" value="Login" (click)="onLogin()" class="btn btn-sm btn-success" />
+<p> </p>
+<form (submit)="onSubmit()">
+    <input type="text" [(ngModel)]="name" name="name" class="form-control"><br>
+    <input type="password" [(ngModel)]="password" name="password" class="form-control"><br>
+    <button class="btn btn-success" type="submit">Sing in</button>
 </form>

@@ -6,19 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { Component } from '@angular/core';
 let CartComponent = class CartComponent {
-    constructor(cartService, formBuilder) {
+    constructor(cartService) {
         this.cartService = cartService;
-        this.formBuilder = formBuilder;
         this.items = this.cartService.getItems();
-        this.checkoutForm = this.formBuilder.group({
-            name: '',
-            address: '',
-        });
     }
     onSubmit(customerData) {
         console.warn('Your order has been submitted', customerData);
         this.items = this.cartService.clearCart();
-        this.checkoutForm.reset();
     }
     ngOnInit() { }
 };

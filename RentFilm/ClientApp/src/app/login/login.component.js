@@ -5,17 +5,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
+import { LoginService } from '../login.service';
+import { LoginUser } from '../loginUser';
 let LoginComponent = class LoginComponent {
-    constructor(loginService, formBuilder) {
+    constructor(loginService) {
         this.loginService = loginService;
-        this.formBuilder = formBuilder;
-        this.loginForm = this.formBuilder.group({
-            login: '',
-            password: '',
-        });
     }
-    onLogin(customerData) {
-        this.loginService.login(customerData);
+    onSubmit() {
+        var user = new LoginUser(this.name, this.password);
+        this.loginService.login(user);
+        console.log(this.name + ' ' + this.password);
     }
     ngOnInit() {
     }
@@ -25,6 +24,7 @@ LoginComponent = __decorate([
         selector: 'app-login',
         templateUrl: './login.component.html',
         styleUrls: ['./login.component.css'],
+        providers: [LoginService]
     })
 ], LoginComponent);
 export { LoginComponent };

@@ -25,7 +25,6 @@ namespace RentFilm.Controllers
             authOptions = options;
 
             db = context;
-            
         }
 
         [Route("login")]

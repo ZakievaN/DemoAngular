@@ -1,24 +1,8 @@
 <h3>Cart</h3>
 
-<p>
-  <a routerLink="/shipping">Shipping</a>
-</p>
-
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }} </span>
   <span>{{ item.price | currency }}</span>
 </div>
 
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-  <div>
-    <label>Name</label>
-    <input type="name" max="100" required />
-  </div>
-
-  <div>
-    <label>Address</label>
-    <input type="address" max="100" required />
-  </div>
-
-  <button class="button" type="submit">Submit</button>
-</form>
+<a class="button fancy-button"><i class="material-icons">payment</i>Pay</a>

@@ -6,11 +6,11 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListAdminComponent } from './product-list-admin/product-list-admin.component';
-//import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 //import { DataService } from './data.service';
-//import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
     imports: [
@@ -18,17 +18,21 @@ import { ProductListAdminComponent } from './product-list-admin/product-list-adm
         FormsModule,
         HttpClientModule,
         RouterModule.forRoot([
-            { path: '', component: ProductListAdminComponent },
+            { path: '', component: ProductListComponent },
+            { path: 'login', component: LoginComponent },
+            { path: 'cart', component: CartComponent }
+
         ]),
     ],
     declarations: [
         AppComponent,
         TopBarComponent,
-        ProductListAdminComponent,
-        //LoginComponent
+        LoginComponent,
+        ProductListComponent,
+        
         //ProductListComponent,
         //DataService,        
-        //CartComponent
+        CartComponent,
     ],
     bootstrap: [AppComponent],
 })

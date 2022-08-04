@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 let LoginService = class LoginService {
     constructor(http) {
         this.http = http;
-        this.url = "/api/login";
+        this.url = "/api/auth";
     }
     login(user) {
         return this.http.post(this.url, user);

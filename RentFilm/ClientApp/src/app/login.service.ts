@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from './user';
+import { LoginUser } from './loginUser';
 
 @Injectable()
 export class LoginService {
@@ -10,7 +10,7 @@ export class LoginService {
     constructor(private http: HttpClient) {
     }
 
-    login(user: User) {
+    login(user: LoginUser) {
         return this.http.post(this.url, user);
     }
 }

@@ -5,7 +5,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using RentFilm.DAL.Context;
-
 using Microsoft.Extensions.Configuration;
 using RentFilm.Domain.Entities;
 using System;
