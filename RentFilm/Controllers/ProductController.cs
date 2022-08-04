@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using RentFilm.Domain.Entities;
 using RentFilm.DAL.Context;
-
+using RentFilm.DAL.TestData;
 
 namespace RentFilm.Controllers
 {
@@ -17,11 +17,7 @@ namespace RentFilm.Controllers
         public ProductController(RentFilmDB context)
         {
             db = context;
-            if (!db.Products.Any())
-            {
-                db.Products.AddRange(TestData.TestData.Products);                
-                db.SaveChanges();
-            }
+            
         }
 
         [HttpGet]

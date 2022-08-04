@@ -1,7 +1,7 @@
 ﻿using RentFilm.Domain.Entities;
 using System.Collections.Generic;
 
-namespace RentFilm.TestData
+namespace RentFilm.DAL.TestData
 {
     internal static class TestData
     {

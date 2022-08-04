@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RentFilm.Domain.Entities;
 using RentFilm.DAL.Context;
+using RentFilm.DAL.TestData;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -24,11 +25,7 @@ namespace RentFilm.Controllers
             authOptions = options;
 
             db = context;
-            if (!db.Users.Any())
-            {
-                db.Users.AddRange(TestData.TestData.Users);                
-                db.SaveChanges();
-            }
+            
         }
 
         [Route("login")]
