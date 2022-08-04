@@ -4,9 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
-using RentFilm.Models;
+using RentFilm.DAL.Context;
+
 using Microsoft.Extensions.Configuration;
 using RentFilm.Domain.Entities;
+using System;
 
 namespace RentFilm
 {
@@ -21,8 +23,12 @@ namespace RentFilm
 
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=filmsdb;Trusted_Connection=True;";
-            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<RentFilmDB>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("Default"), builder =>
+                {
+                    builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
+                })
+            );
 
             services.AddControllers();
 

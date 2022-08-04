@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using RentFilm.Domain.Entities;
-using RentFilm.Models;
+using RentFilm.DAL.Context;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -15,11 +15,11 @@ namespace RentFilm.Controllers
     [Route("api/auth")]
     public class AuthController : Controller
     {
-        private readonly ApplicationContext db;
+        private readonly RentFilmDB db;
 
         private readonly IOptions<AuthOptions> authOptions;
 
-        public AuthController(ApplicationContext context, IOptions<AuthOptions> options)
+        public AuthController(RentFilmDB context, IOptions<AuthOptions> options)
         {
             authOptions = options;
 

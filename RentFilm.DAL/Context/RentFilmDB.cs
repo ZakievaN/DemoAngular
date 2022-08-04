@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RentFilm.Domain.Entities;
 
-namespace RentFilm.Models
+namespace RentFilm.DAL.Context
 {
-    public class ApplicationContext : DbContext
+    public class RentFilmDB : DbContext
     {
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+        public RentFilmDB(DbContextOptions<RentFilmDB> options)
             : base(options)
         {
-            Database.EnsureCreated();
+
         }
 
         public DbSet<Product> Products { get; set; }

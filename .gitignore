@@ -9,3 +9,7 @@
 /RentFilm.Domain/bin/Debug/netcoreapp3.1
 /RentFilm.Domain/obj
 /RentFilm/Migrations
+/RentFilm/bin/Debug/net5.0
+/RentFilm.DAL/bin/Debug/net5.0
+/RentFilm.DAL/obj
+/RentFilm.Domain/bin/Debug/net5.0

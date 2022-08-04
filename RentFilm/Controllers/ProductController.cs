@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using RentFilm.Domain.Entities;
-using RentFilm.Models;
+using RentFilm.DAL.Context;
+
 
 namespace RentFilm.Controllers
 {
@@ -11,9 +12,9 @@ namespace RentFilm.Controllers
     [Route("api/products")]
     public class ProductController : Controller
     {
-        ApplicationContext db;
+        RentFilmDB db;
 
-        public ProductController(ApplicationContext context)
+        public ProductController(RentFilmDB context)
         {
             db = context;
             if (!db.Products.Any())
