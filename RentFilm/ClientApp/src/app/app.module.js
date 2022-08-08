@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
-//import { DataService } from './data.service';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 let AppModule = class AppModule {
 };
@@ -26,7 +26,8 @@ AppModule = __decorate([
             RouterModule.forRoot([
                 { path: '', component: ProductListComponent },
                 { path: 'login', component: LoginComponent },
-                { path: 'cart', component: CartComponent }
+                { path: 'cart', component: CartComponent },
+                { path: 'products/:productId', component: ProductDetailsComponent },
             ]),
         ],
         declarations: [
@@ -34,6 +35,7 @@ AppModule = __decorate([
             TopBarComponent,
             LoginComponent,
             ProductListComponent,
+            ProductDetailsComponent,
             //ProductListComponent,
             //DataService,        
             CartComponent,

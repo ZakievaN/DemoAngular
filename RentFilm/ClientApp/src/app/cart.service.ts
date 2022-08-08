@@ -6,10 +6,11 @@ import { IService } from './iservice';
   providedIn: 'root',
 })
 export class CartService extends IService {
+    products;
+
     constructor(private http: HttpClient) {
         super();
     }
-    products;
 
     addToCart(product) {
         this.products.push(product);

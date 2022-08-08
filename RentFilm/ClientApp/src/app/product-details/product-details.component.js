@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
+import { IService } from '../iservice';
 let ProductDetailsComponent = class ProductDetailsComponent {
     constructor(route, cartService, service) {
         this.route = route;
@@ -25,6 +26,7 @@ ProductDetailsComponent = __decorate([
         selector: 'app-product-details',
         templateUrl: './product-details.component.html',
         styleUrls: ['./product-details.component.css'],
+        providers: [IService]
     })
 ], ProductDetailsComponent);
 export { ProductDetailsComponent };

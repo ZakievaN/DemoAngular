@@ -9,7 +9,7 @@ import { Product } from '../product';
     providers: [DataService]
 })
 
-export class ProductListAdminComponent implements OnInit {
+export class ProductListAdminComponent {
 
     product: Product = new Product();   // изменяемый товар
     products: Product[];                // массив товаров

@@ -1,5 +1,5 @@
 ﻿import { Product } from './product';
 
-export abstract class IService {
+export class IService {
     products: Product[] = []; 
 }
