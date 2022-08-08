@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductListAdminComponent } from './product-list-admin/product-list-admin.component';
 //import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 let AppModule = class AppModule {
@@ -25,6 +26,7 @@ AppModule = __decorate([
             HttpClientModule,
             RouterModule.forRoot([
                 { path: '', component: ProductListComponent },
+                { path: 'admin', component: ProductListAdminComponent },
                 { path: 'login', component: LoginComponent },
                 { path: 'cart', component: CartComponent },
                 //{ path: 'products/:productId', component: ProductDetailsComponent },
@@ -36,7 +38,7 @@ AppModule = __decorate([
             LoginComponent,
             ProductListComponent,
             //ProductDetailsComponent,
-            //ProductListComponent,
+            ProductListAdminComponent,
             //DataService,        
             CartComponent,
         ],

@@ -1,6 +1,7 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 import { Product } from '../product';
+import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
 
 @Component({
     selector: 'app-product-list-admin',
@@ -9,22 +10,13 @@ import { Product } from '../product';
     providers: [DataService]
 })
 
-export class ProductListAdminComponent {
+export class ProductListAdminComponent extends ProductListBaseComponent {
 
-    product: Product = new Product();   // изменяемый товар
-    products: Product[];                // массив товаров
+    product: Product = new Product();   // изменяемый товар              // массив товаров
     tableMode: boolean = true;          // табличный режим
 
-    constructor(private dataService: DataService) { }
-
-    ngOnInit() {
-        this.loadProducts();    // загрузка данных при старте компонента  
-    }
-
-    // получаем данные через сервис
-    loadProducts() {
-        this.dataService.getProducts()
-            .subscribe((data: Product[]) => this.products = data);
+    constructor(public dataService: DataService) {
+        super(dataService);
     }
 
     // сохранение данных

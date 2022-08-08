@@ -11,8 +11,6 @@ import { ProductListBaseComponent } from '../product-list-base/product-list-base
     providers: [DataService]
 })
 export class ProductListComponent extends ProductListBaseComponent {
-    products: Product[]; 
-
     constructor(
         private cartService: CartService,
         public dataService: DataService

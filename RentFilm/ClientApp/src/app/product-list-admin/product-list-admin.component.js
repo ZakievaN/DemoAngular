@@ -7,19 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 import { Product } from '../product';
-let ProductListAdminComponent = class ProductListAdminComponent {
+import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
+let ProductListAdminComponent = class ProductListAdminComponent extends ProductListBaseComponent {
     constructor(dataService) {
+        super(dataService);
         this.dataService = dataService;
-        this.product = new Product(); // изменяемый товар
+        this.product = new Product(); // изменяемый товар              // массив товаров
         this.tableMode = true; // табличный режим
-    }
-    ngOnInit() {
-        this.loadProducts(); // загрузка данных при старте компонента  
-    }
-    // получаем данные через сервис
-    loadProducts() {
-        this.dataService.getProducts()
-            .subscribe((data) => this.products = data);
     }
     // сохранение данных
     save() {
