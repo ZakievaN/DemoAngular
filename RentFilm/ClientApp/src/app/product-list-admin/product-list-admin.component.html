@@ -12,7 +12,10 @@
     <tbody>
         <tr *ngFor="let p of products">
             <ng-template [ngIf]="product?.id != p.id" [ngIfElse]="edit">
-                <td>{{p?.name}}</td>
+                <a [title]="p?.id + ' details'"
+                   [routerLink]="['/products', p?.id]">
+                    <td>{{p?.name}}</td>
+                </a>
                 <td>{{p?.description}}</td>
                 <td>{{p?.price}}</td>
                 <td>

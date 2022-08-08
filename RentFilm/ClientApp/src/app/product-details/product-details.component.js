@@ -18,7 +18,6 @@ let ProductDetailsComponent = class ProductDetailsComponent {
     ngOnInit() {
         this.route.paramMap.subscribe((params) => {
             var id = parseInt(params.get('id'), 10);
-            window.alert(id);
             this.dataService.getProduct(id).subscribe((data) => this.product = data);
             ;
         });
