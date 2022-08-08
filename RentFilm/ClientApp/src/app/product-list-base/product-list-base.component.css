@@ -1,0 +1,16 @@
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-box-2 {
+    display: flex;
+    justify-content: flex-end;
+    outline: 2px deeppink dashed;
+}
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { DataService } from '../data.service';
 import { Product } from '../product';
+import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
 
 @Component({
   selector: 'app-product-list',
@@ -9,34 +10,17 @@ import { Product } from '../product';
     styleUrls: ['./product-list.component.css'],
     providers: [DataService]
 })
-export class ProductListComponent {
+export class ProductListComponent extends ProductListBaseComponent {
     products: Product[]; 
 
     constructor(
         private cartService: CartService,
-        private dataService: DataService
-    ) { }
-
-    ngOnInit() {
-        this.loadProducts();    // загрузка данных при старте компонента  
+        public dataService: DataService
+    ) {
+        super(dataService);
     }
 
-    // получаем данные через сервис
-    loadProducts() {
-        this.dataService.getProducts()
-            .subscribe((data: Product[]) => this.products = data);
-    }
-    
     addToCart(product) {
         this.cartService.addToCart(product);
     }
-    
-    //onNotify() {
-    //    window.alert('You will be notified when the product goes on sale');
-    //}
 }
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

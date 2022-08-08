@@ -6,24 +6,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
-import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
-let ProductListComponent = class ProductListComponent extends ProductListBaseComponent {
-    constructor(cartService, dataService) {
-        super(dataService);
-        this.cartService = cartService;
+let ProductListBaseComponent = class ProductListBaseComponent {
+    constructor(dataService) {
         this.dataService = dataService;
     }
-    addToCart(product) {
-        this.cartService.addToCart(product);
+    ngOnInit() {
+        this.loadProducts();
+    }
+    loadProducts() {
+        this.dataService.getProducts()
+            .subscribe((data) => this.products = data);
     }
 };
-ProductListComponent = __decorate([
+ProductListBaseComponent = __decorate([
     Component({
-        selector: 'app-product-list',
-        templateUrl: './product-list.component.html',
-        styleUrls: ['./product-list.component.css'],
+        selector: 'app-product-list-base',
+        templateUrl: './product-list-base.component.html',
+        styleUrls: ['./product-list-base.component.css'],
         providers: [DataService]
     })
-], ProductListComponent);
-export { ProductListComponent };
-//# sourceMappingURL=product-list.component.js.map
+], ProductListBaseComponent);
+export { ProductListBaseComponent };
+//# sourceMappingURL=product-list-base.component.js.map
