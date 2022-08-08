@@ -1,8 +1,13 @@
 <h3>Cart</h3>
 
 <div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }} </span>
-  <span>{{ item.price | currency }}</span>
+    <span>{{ item.name }} </span>
+    <span>{{ item.price | currency }}</span>
 </div>
 
-<a class="button fancy-button"><i class="material-icons">payment</i>Pay</a>
+<div class="cart-item">
+    <span> Total price </span>
+    <span> {{ totalPrice | currency }} </span>
+    <a class="button fancy-button"><i class="material-icons">payment</i>Pay</a>
+</div>
+

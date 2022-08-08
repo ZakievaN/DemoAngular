@@ -5,20 +5,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Injectable } from '@angular/core';
-let CartService = class CartService {
+import { IService } from './iservice';
+let CartService = class CartService extends IService {
     constructor(http) {
+        super();
         this.http = http;
-        this.items = [];
     }
     addToCart(product) {
-        this.items.push(product);
+        this.products.push(product);
     }
     getItems() {
-        return this.items;
+        return this.products;
+    }
+    getTotalPrice() {
+        var sum = 50;
+        this.products.forEach(function (value) {
+            sum = sum + value.price;
+        });
+        return sum;
     }
     clearCart() {
-        this.items = [];
-        return this.items;
+        this.products = [];
+        return this.products;
     }
     getShippingPrices() {
         return this.http.get('/assets/shipping.json');

@@ -5,18 +5,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
-import { products } from '../products';
 let ProductDetailsComponent = class ProductDetailsComponent {
-    constructor(route, cartService) {
+    constructor(route, cartService, service) {
         this.route = route;
         this.cartService = cartService;
+        this.service = service;
     }
     addToCart(product) {
         this.cartService.addToCart(product);
     }
     ngOnInit() {
         this.route.paramMap.subscribe((params) => {
-            this.product = products[+params.get('productId')];
+            this.product = this.service.products[+params.get('productId')];
         });
     }
 };

@@ -8,11 +8,14 @@ import { Component } from '@angular/core';
 let CartComponent = class CartComponent {
     constructor(cartService) {
         this.cartService = cartService;
+        this.totalPrice = 0;
         this.items = this.cartService.getItems();
+        this.totalPrice = this.cartService.getTotalPrice();
     }
     onSubmit(customerData) {
         console.warn('Your order has been submitted', customerData);
         this.items = this.cartService.clearCart();
+        this.totalPrice = this.cartService.getTotalPrice();
     }
     ngOnInit() { }
 };

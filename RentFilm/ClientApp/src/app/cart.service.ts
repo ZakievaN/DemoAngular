@@ -1,28 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IService } from './iservice';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartService {
-  items = [];
+export class CartService extends IService {
+    constructor(private http: HttpClient) {
+        super();
+    }
+    products;
 
-  constructor(private http: HttpClient) {}
+    addToCart(product) {
+        this.products.push(product);
+    }
 
-  addToCart(product) {
-    this.items.push(product);
-  }
+    getItems() {
+        return this.products;
+    }
 
-  getItems() {
-    return this.items;
-  }
+    getTotalPrice() {
+        var sum: number = 50;
+        this.products.forEach(function (value) {
+            sum = sum + value.price;
+        });
+        return sum;
+    }
 
-  clearCart() {
-    this.items = [];
-    return this.items;
-  }
+    clearCart() {
+        this.products = [];
+        return this.products;
+    }
 
-  getShippingPrices() {
-    return this.http.get('/assets/shipping.json');
-  }
+    getShippingPrices() {
+        return this.http.get('/assets/shipping.json');
+    }
 }
