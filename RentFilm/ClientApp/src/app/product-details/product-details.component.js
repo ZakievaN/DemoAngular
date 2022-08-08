@@ -5,19 +5,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
-import { IService } from '../iservice';
+import { DataService } from '../data.service';
 let ProductDetailsComponent = class ProductDetailsComponent {
-    constructor(route, cartService, service) {
+    constructor(route, cartService, dataService) {
         this.route = route;
         this.cartService = cartService;
-        this.service = service;
+        this.dataService = dataService;
     }
     addToCart(product) {
         this.cartService.addToCart(product);
     }
     ngOnInit() {
         this.route.paramMap.subscribe((params) => {
-            this.product = this.service.products[+params.get('productId')];
+            var id = parseInt(params.get('id'), 10);
+            window.alert(id);
+            this.dataService.getProduct(id).subscribe((data) => this.product = data);
+            ;
         });
     }
 };
@@ -26,7 +29,7 @@ ProductDetailsComponent = __decorate([
         selector: 'app-product-details',
         templateUrl: './product-details.component.html',
         styleUrls: ['./product-details.component.css'],
-        providers: [IService]
+        providers: [DataService]
     })
 ], ProductDetailsComponent);
 export { ProductDetailsComponent };

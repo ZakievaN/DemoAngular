@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IService } from '../iservice';
 import { CartService } from '../cart.service';
+import { DataService } from '../data.service';
+import { Product } from '../product';
 
 @Component({
     selector: 'app-product-details',
     templateUrl: './product-details.component.html',
     styleUrls: ['./product-details.component.css'],
-    providers: [IService]
+    providers: [DataService]
 })
 export class ProductDetailsComponent implements OnInit {
   product;
   constructor(
       private route: ActivatedRoute,
       private cartService: CartService,
-      private service : IService
+      public dataService: DataService
   ) {}
 
   addToCart(product) {
@@ -23,7 +24,10 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-        this.product = this.service.products[+params.get('productId')];
+        
+        var id: number = parseInt(params.get('id')!, 10);
+        this.dataService.getProduct(id).subscribe((data: Product) => this.product = data);;
+       
     });
   }
 }

@@ -9,7 +9,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListAdminComponent } from './product-list-admin/product-list-admin.component';
-//import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { CartComponent } from './cart/cart.component';
             { path: 'admin', component: ProductListAdminComponent },
             { path: 'login', component: LoginComponent },
             { path: 'cart', component: CartComponent },
-            //{ path: 'products/:productId', component: ProductDetailsComponent },
+            { path: 'products/:id', component: ProductDetailsComponent },
         ]),
     ],
     declarations: [
@@ -30,9 +30,8 @@ import { CartComponent } from './cart/cart.component';
         TopBarComponent,
         LoginComponent,
         ProductListComponent,
-        //ProductDetailsComponent,
+        ProductDetailsComponent,
         ProductListAdminComponent,
-        //DataService,        
         CartComponent,
     ],
     bootstrap: [AppComponent],

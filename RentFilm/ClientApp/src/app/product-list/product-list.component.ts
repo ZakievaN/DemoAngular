@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { DataService } from '../data.service';
-import { Product } from '../product';
 import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
 
 @Component({
