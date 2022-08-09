@@ -1,6 +1,20 @@
-<p> </p>
-<form (submit)="onSubmit()">
-    <input type="text" [(ngModel)]="name" name="name" class="form-control"><br>
-    <input type="password" [(ngModel)]="password" name="password" class="form-control"><br>
-    <button class="btn btn-success" type="submit">Sing in</button>
-</form>
+<div class="center">
+    <form (submit)="onSubmit()">
+
+        <div>
+            <label> Login </label>
+            <div>
+                <input type="text" [(ngModel)]="name" required name="name" />
+            </div>
+        </div>
+        <div>
+            <label> Password </label>
+            <div>
+                <input type="password" [(ngModel)]="password" required name="password" />
+            </div>
+        </div>
+
+        <button class="btn btn-success" type="submit">Sing in</button>
+
+    </form>
+</div>
