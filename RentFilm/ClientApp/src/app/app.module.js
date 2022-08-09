@@ -10,12 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import { LoginComponent } from './login/login.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductListAdminComponent } from './product-list-admin/product-list-admin.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
+import { TopBarComponent } from './bars/top-bar/top-bar.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductListAdminComponent } from './components/product-list-admin/product-list-admin.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CartComponent } from './components/cart/cart.component';
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
