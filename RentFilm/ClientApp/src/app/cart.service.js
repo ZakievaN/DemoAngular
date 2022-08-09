@@ -12,7 +12,10 @@ let CartService = class CartService extends IService {
         this.http = http;
     }
     addToCart(product) {
-        this.products.push(product);
+        var index = this.products.find(data => product.id == data.id);
+        if (!index) {
+            this.products.push(product);
+        }
     }
     getItems() {
         return this.products;

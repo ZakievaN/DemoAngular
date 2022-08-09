@@ -9,7 +9,8 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
     items;
     totalPrice: number = 0;
-
+    checkoutForm;
+    
     constructor(
     private cartService: CartService,
     ) {
@@ -17,10 +18,10 @@ export class CartComponent implements OnInit {
         this.totalPrice = this.cartService.getTotalPrice();
     }
 
-    onSubmit(customerData) {
-        console.warn('Your order has been submitted', customerData);
+    onSubmit() {        
         this.items = this.cartService.clearCart();
         this.totalPrice = this.cartService.getTotalPrice();
+        window.alert('Your order has been submitted');
     }
 
     ngOnInit() {}

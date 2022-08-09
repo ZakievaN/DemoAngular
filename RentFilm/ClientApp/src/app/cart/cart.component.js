@@ -12,10 +12,10 @@ let CartComponent = class CartComponent {
         this.items = this.cartService.getItems();
         this.totalPrice = this.cartService.getTotalPrice();
     }
-    onSubmit(customerData) {
-        console.warn('Your order has been submitted', customerData);
+    onSubmit() {
         this.items = this.cartService.clearCart();
         this.totalPrice = this.cartService.getTotalPrice();
+        window.alert('Your order has been submitted');
     }
     ngOnInit() { }
 };

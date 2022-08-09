@@ -1,17 +1,17 @@
 <h2>Collection films</h2>
 
-<div *ngFor="let product of products;">
-    <h3>
-        <a 
-           [title]="product.id + ' details'"
-           [routerLink]="['/products', product.id]"
-        >
-            {{ product.name }}
-        </a>
-    </h3>
+<table class="table table-striped">
 
-    <p *ngIf="product.description">Description: {{ product.description }}</p>
-
-    <button (click)="addToCart(product)" style="float: right;">To cart</button>
-
-</div>
+    <tbody>
+        <tr *ngFor="let product of products;">
+            <a [title]="product.id + ' details'"
+                [routerLink]="['/products', product.id]">
+            <td> <h3> {{ product?.name }} </h3> </td>
+            </a>
+            <td> {{ product.price | currency }} </td>
+            <td>
+                <button (click)="addToCart(product)" style="float: right;" class="button fancy-button"><i class="material-icons">add_shopping_cart</i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -19,7 +19,6 @@ let ProductDetailsComponent = class ProductDetailsComponent {
         this.route.paramMap.subscribe((params) => {
             var id = parseInt(params.get('id'), 10);
             this.dataService.getProduct(id).subscribe((data) => this.product = data);
-            ;
         });
     }
 };

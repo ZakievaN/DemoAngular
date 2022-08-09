@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IService } from './iservice';
+import { Product } from './product';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,10 @@ export class CartService extends IService {
     }
 
     addToCart(product) {
-        this.products.push(product);
+        var index = this.products.find(data => (<Product>product).id == (<Product>data).id);
+        if (!index) {
+            this.products.push(product);
+        }
     }
 
     getItems() {
