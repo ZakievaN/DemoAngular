@@ -53,5 +53,8 @@
   },
   "optionalDependencies": {
     "node-sass": "^4.9.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

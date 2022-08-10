@@ -31,9 +31,6 @@ let CartService = class CartService extends IService {
         this.products = [];
         return this.products;
     }
-    getShippingPrices() {
-        return this.http.get('/assets/shipping.json');
-    }
 };
 CartService = __decorate([
     Injectable({

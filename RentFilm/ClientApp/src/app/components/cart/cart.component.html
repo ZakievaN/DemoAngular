@@ -2,7 +2,9 @@
 
 <div class="cart-item" *ngFor="let item of items">
     <span>{{ item.name }} </span>
+    <span><img src={{item.imageUrl}} /></span>
     <span>{{ item.price | currency }}</span>
+
 </div>
 
 <div class="cart-item">

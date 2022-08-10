@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using RentFilm.Domain.Models;
 using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+
 
 namespace RentFilm
 {
@@ -79,10 +82,17 @@ namespace RentFilm
             }
 
             app.UseStaticFiles();
-            if (!env.IsDevelopment())
-            {
+            //if (!env.IsDevelopment())
+            //{
                 app.UseSpaStaticFiles();
-            }
+            //}
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                Path.Combine(env.ContentRootPath, "ClientApp/src/assets")),
+                RequestPath = "/assets"
+            });
 
             app.UseRouting();
 
