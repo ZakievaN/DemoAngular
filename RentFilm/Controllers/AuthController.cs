@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using RentFilm.Domain.Models;
 using RentFilm.Domain.Entities;
 using RentFilm.DAL.Context;
-using RentFilm.DAL.TestData;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -29,7 +29,7 @@ namespace RentFilm.Controllers
 
         [Route("login")]
         [HttpPost]
-        public IActionResult Login([FromBody] LoginUser userRequest)
+        public IActionResult Login(LoginUser userRequest)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,7 @@ namespace RentFilm.Controllers
 
         private User AuthUser(string login, string password)
         {
-            return db.Users.Single(u => u.Login == login && u.Password == password);
+            return db.Users.SingleOrDefault(u => u.Login == login && u.Password == password);
         }
 
         private string GenerateJWT(User user)

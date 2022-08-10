@@ -13,8 +13,8 @@ let LoginComponent = class LoginComponent {
     }
     onSubmit() {
         var user = new LoginUser(this.name, this.password);
-        this.loginService.login(user);
-        console.log(this.name + ' ' + this.password);
+        var request = this.loginService.login(user);
+        console.log(this.name + ' ' + this.password + ' ' + request);
     }
     ngOnInit() {
     }

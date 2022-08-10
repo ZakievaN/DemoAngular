@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RentFilm.DAL.Context;
 using RentFilm.Domain.Entities;
 using System.Collections.Generic;
@@ -6,30 +7,33 @@ using System.Linq;
 
 namespace RentFilm.Controllers
 {
-    [ApiController]
     [Route("api/products")]
-    public class ProductController : Controller
+    [ApiController]
+    public class ProductsController : Controller
     {
         RentFilmDB db;
 
-        public ProductController(RentFilmDB context)
+        public ProductsController(RentFilmDB context)
         {
             db = context;
         }
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        [Route("")]
+        public IActionResult GetProducts()
         {
-            return db.Products.ToList();
+            return Ok(db.Products.ToList());
         }
 
         [HttpGet("{id}")]
-        public Product Get(int id)
+        [Route("product")]
+        public IActionResult GetProduct(int id)
         {
             Product film = db.Products.FirstOrDefault(x => x.Id == id);
-            return film;
+            return Ok(film);
         }
 
+        [Authorize (Roles = "1")]
         [HttpPost]
         public IActionResult Post(Product film)
         {
@@ -42,6 +46,7 @@ namespace RentFilm.Controllers
             return BadRequest(ModelState);
         }
 
+        [Authorize(Roles = "1")]
         [HttpPut]
         public IActionResult Put(Product film)
         {
@@ -54,6 +59,7 @@ namespace RentFilm.Controllers
             return BadRequest(ModelState);
         }
 
+        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

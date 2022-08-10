@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using RentFilm.DAL.Context;
 using Microsoft.Extensions.Configuration;
-using RentFilm.Domain.Entities;
+using RentFilm.Domain.Models;
 using System;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace RentFilm
 {
@@ -33,6 +34,27 @@ namespace RentFilm
 
             var authOptionsConfiguration = Configuration.GetSection("Auth");
             services.Configure<AuthOptions>(authOptionsConfiguration);
+
+            var authOptions = Configuration.GetSection("Auth").Get<AuthOptions>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidIssuer = authOptions.Issuer,
+
+                        ValidateAudience = true,
+                        ValidAudience = authOptions.Audience,
+
+                        ValidateLifetime = true,
+
+                        IssuerSigningKey = authOptions.GetSymmetricSecurityKey(),
+                        ValidateIssuerSigningKey = true
+                    };
+                });
 
             services.AddCors(options =>
             {
@@ -65,7 +87,10 @@ namespace RentFilm
             app.UseRouting();
 
             app.UseCors();
- 
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

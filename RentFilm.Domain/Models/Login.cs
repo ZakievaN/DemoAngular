@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RentFilm.Domain.Entities
+namespace RentFilm.Domain.Models
 {
     public class LoginUser
     {
