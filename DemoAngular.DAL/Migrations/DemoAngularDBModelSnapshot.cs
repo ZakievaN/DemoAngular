@@ -8,7 +8,7 @@ using DemoAngular.DAL.Context;
 namespace DemoAngular.DAL.Migrations
 {
     [DbContext(typeof(DemoAngularDB))]
-    partial class FentFilmDBModelSnapshot : ModelSnapshot
+    partial class DemoAngularDBModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

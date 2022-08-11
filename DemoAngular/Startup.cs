@@ -27,10 +27,10 @@ namespace DemoAngular
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DemoAngularDB>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("Default"), builder =>
+                options.UseSqlServer(Configuration.GetConnectionString("Default")/*, builder =>
                 {
                     builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-                })
+                }*/)
             );
 
             services.AddControllers();
@@ -74,7 +74,7 @@ namespace DemoAngular
             });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -115,6 +115,9 @@ namespace DemoAngular
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            var context = serviceProvider.GetRequiredService<DemoAngularDB>();
+            DbInitializer.Initialize(context);
         }
     }
 }
