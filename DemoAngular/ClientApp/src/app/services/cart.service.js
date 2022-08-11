@@ -21,7 +21,7 @@ let CartService = class CartService extends IService {
         return this.products;
     }
     getTotalPrice() {
-        var sum = 50;
+        var sum = 0;
         this.products.forEach(function (value) {
             sum = sum + value.price;
         });

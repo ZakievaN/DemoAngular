@@ -32,7 +32,6 @@ namespace DemoAngular.Controllers
             return Ok(film);
         }
 
-        [Authorize (Roles = "1")]
         [HttpPost]
         public IActionResult Post(Product film)
         {
@@ -45,7 +44,6 @@ namespace DemoAngular.Controllers
             return BadRequest(ModelState);
         }
 
-        [Authorize(Roles = "1")]
         [HttpPut]
         public IActionResult Put(Product film)
         {
@@ -58,7 +56,6 @@ namespace DemoAngular.Controllers
             return BadRequest(ModelState);
         }
 
-        [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

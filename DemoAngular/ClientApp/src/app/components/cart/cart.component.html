@@ -1,4 +1,4 @@
-<h3>Cart</h3>
+<h3>Зафиксированые расходы</h3>
 
 <div class="cart-item" *ngFor="let item of items">
     <span>{{ item.name }} </span>
@@ -8,8 +8,8 @@
 </div>
 
 <div class="cart-item">
-    <span> Total price </span>
+    <span> Итоговая сумма </span>
     <span> {{ totalPrice | currency }} </span>
-    <p><button (click)="onSubmit()" class="button fancy-button"><i class="material-icons"></i>Pay</button></p>
+    <!-- <p><button (click)="onSubmit()" class="button fancy-button"><i class="material-icons"></i>Pay</button></p>-->
 </div>
 
