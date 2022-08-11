@@ -1,14 +1,7 @@
-<h1>Films</h1>
-<input type="button" value="Add" class="btn btn-default" (click)="add()" />
-<table *ngIf="tableMode; else create" class="table table-striped">
-    <thead>
-        <tr>
-            <td>Name</td>
-            <td>Description</td>
-            <td>Price</td>
-            <td></td>
-        </tr>
-    </thead>
+<h1></h1>
+<input type="button" value="Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½Ð¾Ð²Ñ‹Ð¹ Ñ€Ð°ÑÑ…Ð¾Ð´" class="btn btn-default" (click)="add()" />
+<table *ngIf="tableMode; else create" class="table table">
+
     <tbody>
         <tr *ngFor="let p of products">
             <ng-template [ngIf]="product?.id != p.id" [ngIfElse]="edit">
@@ -19,15 +12,16 @@
                 <td>{{p?.description}}</td>
                 <td>{{p?.price}}</td>
                 <td>
-                    <button class="btn btn-sm btn-primary" (click)="editProduct(p)">Change</button>
-                    <button class="btn btn-sm btn-danger" (click)="delete(p)">Delete</button>
+                    <button class="button fancy-button" (click)="editProduct(p)"> <i class="material-icons">edit</i> </button>
+                    <button class="button fancy-button" (click)="delete(p)"> <i class="material-icons">delete_forever</i></button>
+                    <button (click)="addToCart(product)" style="float: right;" class="button fancy-button"><i class="material-icons">add</i></button>
                 </td>
             </ng-template>
         </tr>
     </tbody>
 </table>
 
-<!--øàáëîí äëÿ ðåäàêòèðîâàíèÿ-->
+<!--ÑˆÐ°Ð±Ð»Ð¾Ð½ Ð´Ð»Ñ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ-->
 <ng-template #edit>
     <td>
         <input type="text" [(ngModel)]="product.name" class="form-control" />
@@ -44,7 +38,7 @@
     </td>
 </ng-template>
 
-<!--øàáëîí äëÿ äîáàâëåíèÿ-->
+<!--ÑˆÐ°Ð±Ð»Ð¾Ð½ Ð´Ð»Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ-->
 <ng-template #create>
     <div class="form-group">
         <label>Name</label>

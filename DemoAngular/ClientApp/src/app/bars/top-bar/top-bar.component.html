@@ -1,11 +1,14 @@
+<script src="/node_modules/qrcode-generator/qrcode.js"></script>
+<script src="/node_modules/qrcode-generator/qrcode_UTF8.js"></script>
+<script src="/node_modules/angular-qrcode/angular-qrcode.js"></script>
 
 <div>
     <a [routerLink]="['/']">
-        <h1>Rent Film</h1>
+        <h1>Планирование расходов</h1>
     </a>
 </div>
 
 <div>
-    <button [routerLink]="['/login']" class="button fancy-button" style="float: right;"><i class="material-icons">input</i>Sing in</button>
-    <button [routerLink]="['/cart']" class="button fancy-button" style="float: right;"><i class="material-icons">shopping_cart</i>Cart</button>
+    <!-- <button [routerLink]="['/login']" class="button fancy-button" style="float: right;"><i class="material-icons">input</i>Sing in</button>-->
+    <button [routerLink]="['/cart']" class="button fancy-button" style="float: right;"><i class="material-icons">shopping_cart</i>Расходы</button>
 </div>

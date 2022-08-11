@@ -2,6 +2,7 @@
 import { DataService } from '../../services/data.service';
 import { Product } from '../../models/product';
 import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
+import { CartService } from '../../services/cart.service';
 
 @Component({
     selector: 'app-product-list-admin',
@@ -15,11 +16,17 @@ export class ProductListAdminComponent extends ProductListBaseComponent {
     product: Product = new Product();   // изменяемый товар              // массив товаров
     tableMode: boolean = true;          // табличный режим
 
-    constructor(public dataService: DataService) {
+    constructor(
+        public dataService: DataService,
+        private cartService: CartService
+    ) {
         super(dataService);
     }
 
-    // сохранение данных
+    addToCart(product) {
+        this.cartService.addToCart(product);
+    }
+
     save() {
         if (this.product.id == null) {
             this.dataService.createProduct(this.product)

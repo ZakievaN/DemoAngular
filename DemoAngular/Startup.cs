@@ -27,10 +27,10 @@ namespace DemoAngular
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DemoAngularDB>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("Default")/*, builder =>
+                options.UseSqlServer(Configuration.GetConnectionString("Default"), builder =>
                 {
                     builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-                }*/)
+                })
             );
 
             services.AddControllers();

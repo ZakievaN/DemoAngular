@@ -9,13 +9,16 @@ import { DataService } from '../../services/data.service';
 import { Product } from '../../models/product';
 import { ProductListBaseComponent } from '../product-list-base/product-list-base.component';
 let ProductListAdminComponent = class ProductListAdminComponent extends ProductListBaseComponent {
-    constructor(dataService) {
+    constructor(dataService, cartService) {
         super(dataService);
         this.dataService = dataService;
+        this.cartService = cartService;
         this.product = new Product(); // изменяемый товар              // массив товаров
         this.tableMode = true; // табличный режим
     }
-    // сохранение данных
+    addToCart(product) {
+        this.cartService.addToCart(product);
+    }
     save() {
         if (this.product.id == null) {
             this.dataService.createProduct(this.product)

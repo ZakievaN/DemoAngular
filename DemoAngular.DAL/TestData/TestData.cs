@@ -8,17 +8,25 @@ namespace DemoAngular.DAL.TestData
         private static readonly List<Product> products = new List<Product>()
         {
             new Product {
-                Name = "Interstellar",
-                Description = "A team of explorers travel through a wormhole in space in an attempt to ensure humanitys survival.",
-                Price = 51,
-                ImageUrl = "/assets/img/interstellar.jpg"
+                Name = "Стрижка",
+                Description = "Стрижка в таком-то салоне у мастера такого-то уровня",
+                Price = 15
             },
             new Product {
-                Name = "Tenet",
-                Description = "Armed with only one word, Tenet, and fighting for the survival of the entire world, a Protagonist journeys through a twilight world of international espionage on a mission that will unfold in something beyond real time.",
-                Price = 49,
-                ImageUrl = "/assets/img/tenet.jpg"
-            }
+                Name = "Плавание",
+                Description = "Абонемент на месяц плавания в таком-то центре",
+                Price = 49
+            },
+            new Product {
+                Name = "Английский язык",
+                Description = "10 занятий английского языка с репетитором",
+                Price = 150
+            },
+            new Product {
+                Name = "Уикэнд",
+                Description = "Траты на выходные",
+                Price = 100
+            },
         };
 
         private static readonly List<User> users = new List<User>()

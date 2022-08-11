@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using DemoAngular.DAL.Context;
 using DemoAngular.Domain.Entities;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace DemoAngular.Controllers

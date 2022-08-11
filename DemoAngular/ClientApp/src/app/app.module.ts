@@ -26,8 +26,8 @@ import { CartComponent } from './components/cart/cart.component';
         FormsModule,
         HttpClientModule,
         RouterModule.forRoot([
-            { path: '', component: ProductListComponent },
-            { path: 'admin', component: ProductListAdminComponent },
+            { path: '', component: ProductListAdminComponent },
+            //{ path: 'admin', component: ProductListAdminComponent },
             { path: 'login', component: LoginComponent },
             { path: 'cart', component: CartComponent },
             { path: 'products/:id', component: ProductDetailsComponent },
