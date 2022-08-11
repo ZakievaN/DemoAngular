@@ -1,7 +1,7 @@
-﻿using RentFilm.Domain.Entities;
+﻿using DemoAngular.Domain.Entities;
 using System.Collections.Generic;
 
-namespace RentFilm.DAL.TestData
+namespace DemoAngular.DAL.TestData
 {
     internal static class TestData
     {

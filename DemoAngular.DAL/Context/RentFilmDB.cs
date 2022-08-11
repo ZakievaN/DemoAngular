@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RentFilm.Domain.Entities;
+using DemoAngular.Domain.Entities;
 using System.Linq;
 
-namespace RentFilm.DAL.Context
+namespace DemoAngular.DAL.Context
 {
-    public class RentFilmDB : DbContext
+    public class DemoAngularDB : DbContext
     {
-        public RentFilmDB(DbContextOptions<RentFilmDB> options)
+        public DemoAngularDB(DbContextOptions<DemoAngularDB> options)
             : base(options)
         {
             if (!Users.Any())

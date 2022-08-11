@@ -1,5 +1,5 @@
 ﻿
-namespace RentFilm.Domain.Entities
+namespace DemoAngular.Domain.Entities
 {
     public class Product
     {

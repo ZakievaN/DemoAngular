@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RentFilm.DAL.Context;
-using RentFilm.Domain.Entities;
+using DemoAngular.DAL.Context;
+using DemoAngular.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RentFilm.Controllers
+namespace DemoAngular.Controllers
 {
     [Route("api/products")]
     [ApiController]
     public class ProductsController : Controller
     {
-        RentFilmDB db;
+        DemoAngularDB db;
 
-        public ProductsController(RentFilmDB context)
+        public ProductsController(DemoAngularDB context)
         {
             db = context;
         }

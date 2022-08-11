@@ -1,26 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using RentFilm.Domain.Models;
-using RentFilm.Domain.Entities;
-using RentFilm.DAL.Context;
+using DemoAngular.Domain.Models;
+using DemoAngular.Domain.Entities;
+using DemoAngular.DAL.Context;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 
-namespace RentFilm.Controllers
+namespace DemoAngular.Controllers
 {
     [ApiController]
     [Route("api/auth")]
     public class AuthController : Controller
     {
-        private readonly RentFilmDB db;
+        private readonly DemoAngularDB db;
 
         private readonly IOptions<AuthOptions> authOptions;
 
-        public AuthController(RentFilmDB context, IOptions<AuthOptions> options)
+        public AuthController(DemoAngularDB context, IOptions<AuthOptions> options)
         {
             authOptions = options;
 

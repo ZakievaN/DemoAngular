@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace RentFilm
+namespace DemoAngular
 {
     public class Program
     {

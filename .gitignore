@@ -14,3 +14,13 @@
 /RentFilm.DAL/obj
 /RentFilm.Domain/bin/Debug/net5.0
 /node_modules
+/.vs/DemoAngular
+/DemoAngular/bin/Debug/net5.0
+/DemoAngular/ClientApp/node_modules
+/DemoAngular/obj/Debug
+/DemoAngular/obj
+/DemoAngular.DAL/bin/Debug/net5.0
+/DemoAngular.DAL/obj/Debug
+/DemoAngular.DAL/obj
+/DemoAngular.Domain/bin/Debug/net5.0
+/DemoAngular.Domain/obj

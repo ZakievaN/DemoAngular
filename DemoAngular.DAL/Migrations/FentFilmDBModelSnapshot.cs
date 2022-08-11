@@ -2,17 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using RentFilm.DAL.Context;
+using DemoAngular.DAL.Context;
 
-namespace RentFilm.DAL.Migrations
+namespace DemoAngular.DAL.Migrations
 {
-    [DbContext(typeof(RentFilmDB))]
-    [Migration("20220804081517_Init")]
-    partial class Init
+    [DbContext(typeof(DemoAngularDB))]
+    partial class FentFilmDBModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,7 +18,7 @@ namespace RentFilm.DAL.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RentFilm.Domain.Entities.Product", b =>
+            modelBuilder.Entity("DemoAngular.Domain.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,7 +42,7 @@ namespace RentFilm.DAL.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("RentFilm.Domain.Entities.User", b =>
+            modelBuilder.Entity("DemoAngular.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

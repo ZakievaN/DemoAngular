@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace RentFilm.DAL.Migrations
+namespace DemoAngular.DAL.Migrations
 {
     public partial class Init : Migration
     {

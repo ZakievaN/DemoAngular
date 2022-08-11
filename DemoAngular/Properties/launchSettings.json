@@ -16,7 +16,7 @@
       },
       "ancmHostingModel": "InProcess"
     },
-    "RentFilm": {
+    "DemoAngular": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

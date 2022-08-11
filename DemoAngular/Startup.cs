@@ -4,16 +4,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
-using RentFilm.DAL.Context;
+using DemoAngular.DAL.Context;
 using Microsoft.Extensions.Configuration;
-using RentFilm.Domain.Models;
+using DemoAngular.Domain.Models;
 using System;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 
 
-namespace RentFilm
+namespace DemoAngular
 {
     public class Startup
     {
@@ -26,7 +26,7 @@ namespace RentFilm
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<RentFilmDB>(options => 
+            services.AddDbContext<DemoAngularDB>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("Default"), builder =>
                 {
                     builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
@@ -82,10 +82,10 @@ namespace RentFilm
             }
 
             app.UseStaticFiles();
-            //if (!env.IsDevelopment())
-            //{
-                app.UseSpaStaticFiles();
-            //}
+            if (!env.IsDevelopment())
+            {
+              app.UseSpaStaticFiles();
+            }
 
             app.UseStaticFiles(new StaticFileOptions
             {

@@ -1,13 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RentFilm.Domain.Models
+namespace DemoAngular.Domain.Entities
 {
-    public class LoginUser
+    public class User
     {
-        [Required]
+        public int Id { get; set; }
+
         public string Login { get; set; }
 
-        [Required]
         public string Password { get; set; }
+
+        public int Role { get; set; }
     }
 }

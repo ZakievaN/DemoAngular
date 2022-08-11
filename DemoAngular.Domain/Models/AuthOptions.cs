@@ -1,7 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace RentFilm.Domain.Models
+namespace DemoAngular.Domain.Models
 {
     public class AuthOptions
     {

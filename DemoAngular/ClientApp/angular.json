@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rentfilm": {
+    "DemoAngular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,11 +57,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rentfilm:build"
+            "browserTarget": "DemoAngular:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rentfilm:build:production"
+              "browserTarget": "DemoAngular:build:production"
             }
           }
         },
@@ -116,5 +116,5 @@
       }
     }
   },
-  "defaultProject": "rentfilm"
+  "defaultProject": "DemoAngular"
 }
